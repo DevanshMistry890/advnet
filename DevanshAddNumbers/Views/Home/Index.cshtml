@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<!-- Model Binding:: -->
+@model AddNumbers
+
+<div class="text-center">
+    <h1 class="display-4">Add Numbers</h1>
+</div>
+<form method="post" asp-controller="Home" asp-action="Index">
+    <div asp-validation-summary="All" class="text-danger">
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <label for="number1">Number 1:</label>
+        </div>
+        <div class="col-sm-3">
+            <input class="input-group" type="number" name="number1" asp-for="Number1"/>
+        </div>
+        <div class="col-sm-3">
+            <span asp-validation-for="Number1" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <label for="number2" >Number 2:</label>
+        </div>
+        <div class="col-sm-3">
+            <input class="input-group" type="number" name="number2" asp-for="Number2"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <label>Sum :</label>
+        </div>
+        <div class="col-sm-3">
+            <input class="input-group" type="number" value="@ViewBag.Sum" readonly disabled/>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-sm-3">
+            <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">RESET</a>
+        </div>
+        <div class="col-sm-3">
+            <button class="btn btn-primary" type="submit">Add</button>
+        </div>
+    </div>
+</form>
